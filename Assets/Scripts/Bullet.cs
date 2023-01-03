@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision);
         Damageable damageable = collision.gameObject.GetComponent<Damageable>();
         if (damageable)
         {

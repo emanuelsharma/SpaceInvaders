@@ -21,7 +21,6 @@ public class Damageable : MonoBehaviour
     public void TakeDamage(int damage)
     {
         crrtHealth -= damage;
-        Debug.Log(crrtHealth);
         damaged?.Invoke(this, damage);
         
         if (crrtHealth <= 0)
