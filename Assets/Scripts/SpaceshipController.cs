@@ -12,12 +12,21 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField]
     float lean = 20f;
 
+    [Header("Firing")]
+    [SerializeField]
+    GameObject bullet;
+    [SerializeField]
+    float firePeriod = 0.5f;
+
     [SerializeField, HideInInspector]
     float m_position = 0f;
+    [SerializeField, HideInInspector]
+    float m_timeNextFire = 0f;
 
     void Update()
     {
         HandleMovement();
+        HandleFiring();
     }
 
     void HandleMovement()
@@ -32,6 +41,16 @@ public class SpaceshipController : MonoBehaviour
 
             transform.position = new Vector3(m_position, 0f, 0f);
             transform.rotation = Quaternion.Euler(0f, 0f, -lean * direction);
+        }
+    }
+
+    void HandleFiring()
+    {
+        bool isFiring = Input.GetKey("space");
+        if (isFiring && m_timeNextFire < Time.time)
+        {
+            GameObject.Instantiate(bullet, transform.position, Quaternion.identity);
+            m_timeNextFire = Time.time + firePeriod;
         }
     }
 }
