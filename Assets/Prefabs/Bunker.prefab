@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1932399952111475803}
   - component: {fileID: 8351663632818617899}
   - component: {fileID: 8796258268094778907}
+  - component: {fileID: 8696757311141641670}
   m_Layer: 0
   m_Name: Bunker
   m_TagString: Untagged
@@ -112,9 +113,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damaged:
     m_PersistentCalls:
-      m_Calls: []
-  died:
+      m_Calls:
+      - m_Target: {fileID: 8696757311141641670}
+        m_TargetAssemblyTypeName: Bunker, Assembly-CSharp
+        m_MethodName: OnDamaged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  destroyed:
     m_PersistentCalls:
-      m_Calls: []
-  <startingHealth>k__BackingField: 1
+      m_Calls:
+      - m_Target: {fileID: 8696757311141641670}
+        m_TargetAssemblyTypeName: Bunker, Assembly-CSharp
+        m_MethodName: OnDestroyed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <startingHealth>k__BackingField: 5
   <crrtHealth>k__BackingField: 0
+--- !u!114 &8696757311141641670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342731865792550953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cb9ad69ef08b043abb1e373407770a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
+    [SerializeField]
+    public UnityEvent<Damageable, int> damaged, destroyed;
 
     [field: SerializeField]
     public int startingHealth { get; private set; } = 1;
@@ -20,5 +22,11 @@ public class Damageable : MonoBehaviour
     {
         crrtHealth -= damage;
         Debug.Log(crrtHealth);
+        damaged?.Invoke(this, damage);
+        
+        if (crrtHealth <= 0)
+        {
+            destroyed?.Invoke(this, damage);
+        }
     }
 }
