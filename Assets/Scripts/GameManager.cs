@@ -36,8 +36,10 @@ public class GameManager : MonoBehaviour
     Alien[,] crrtAliens;
     [SerializeField, HideInInspector]
     int leftMostAlien, rightMostAlien, bottomMostAlien;
-    [SerializeField, HideInInspector]
-    int crrtLevel, crrtScore;
+    [field: SerializeField, HideInInspector]
+    public static int crrtLevel { get; private set; }
+    [field: SerializeField, HideInInspector]
+    public static int crrtScore { get; private set; }
 
     void Start()
     {
@@ -132,10 +134,7 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
-        Debug.Log(leftMostAlien);
-        Debug.Log(rightMostAlien);
-        Debug.Log(bottomMostAlien);
-        Debug.Log("EndGame");
+        SceneManager.LoadScene("GameOver");
     }
 
     public void OnAlienDead(Alien alien)
