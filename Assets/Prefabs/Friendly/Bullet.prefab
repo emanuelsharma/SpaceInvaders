@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7558f94251e796241a05178f7e5a2732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionClip: {fileID: 8300000, guid: bf3511a12adb13d44ab31e175390fdd4, type: 3}
   speed: 10
   maxPosition: 20
   damage: 1

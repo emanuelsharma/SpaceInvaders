@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField]
+    AudioSource flyAudioSource;
+    [SerializeField]
+    AudioClip flyAudioClip, idleAudioClip, fireAudioClip;
+
     [Header("Movement")]
     [SerializeField]
     float movementRadius = 15f;
@@ -41,6 +47,17 @@ public class SpaceshipController : MonoBehaviour
 
             transform.position = new Vector3(m_position, 0f, 0f);
             transform.rotation = Quaternion.Euler(0f, 0f, -lean * direction);
+
+            flyAudioSource.clip = flyAudioClip;
+        }
+        else
+        {
+            flyAudioSource.clip = idleAudioClip;
+        }
+
+        if (!flyAudioSource.isPlaying)
+        {
+            flyAudioSource.Play();
         }
     }
 
@@ -50,6 +67,7 @@ public class SpaceshipController : MonoBehaviour
         if (isFiring && m_timeNextFire < Time.time)
         {
             GameObject.Instantiate(bullet, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(fireAudioClip, transform.position);
             m_timeNextFire = Time.time + firePeriod;
         }
     }

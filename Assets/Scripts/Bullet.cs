@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
+    AudioClip explosionClip;
+    [SerializeField]
     float speed = 10f;
     [SerializeField]
     float maxPosition = 20f;
@@ -28,6 +30,7 @@ public class Bullet : MonoBehaviour
             damageable.TakeDamage(damage);
         }
 
+        AudioSource.PlayClipAtPoint(explosionClip, transform.position);
         GameObject.Destroy(gameObject);
     }
 }

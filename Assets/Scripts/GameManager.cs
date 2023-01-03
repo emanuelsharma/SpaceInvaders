@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour
     [Header("Visual")]
     [SerializeField]
     float cellSize;
+
+    [Header("Audio")]
+    [SerializeField]
+    AudioClip victoryClip;
 
     [Header("GameState")]
     [SerializeField, HideInInspector]
@@ -152,6 +157,7 @@ public class GameManager : MonoBehaviour
         // End level if necessary
         if (GetAreAllAliensDead())
         {
+            AudioSource.PlayClipAtPoint(victoryClip, transform.position);
             StartLevel(crrtLevel + 1);
         }
     }

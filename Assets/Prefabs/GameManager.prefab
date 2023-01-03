@@ -511,6 +511,7 @@ MonoBehaviour:
   swarmYPos: 0
   swarmDirection: 0
   cellSize: 1
+  victoryClip: {fileID: 8300000, guid: fd29990d2f3175544b93b4bcec455a9f, type: 3}
   leftMostAlien: 0
   rightMostAlien: 0
   bottomMostAlien: 0
