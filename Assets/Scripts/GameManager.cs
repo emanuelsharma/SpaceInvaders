@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [Header("ComponentReferences")]
     [SerializeField]
     Alien[] aliens;
+    [SerializeField]
+    TMP_Text scoreField, levelField;
     [SerializeField, HideInInspector]
     Transform alienSwarm;
 
@@ -94,11 +96,13 @@ public class GameManager : MonoBehaviour
     void SetScore(int score)
     {
         crrtScore = score;
+        scoreField.text = $"Score {crrtScore}";
     }
 
     void StartLevel(int level)
     {
         crrtLevel = level;
+        levelField.text = $"Level {crrtLevel}";
 
         leftMostAlien = 0;
         rightMostAlien = swarmWidth - 1;
