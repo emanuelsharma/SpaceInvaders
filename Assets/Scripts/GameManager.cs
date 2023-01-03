@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         swarmXPos = 0;
         swarmYPos = gridHeight - swarmHeight;
         crrtAliens = new Alien[swarmWidth, swarmHeight];
+        StopAllCoroutines();
         alienSwarm.localPosition = new Vector3(0f, 0f, swarmYPos * cellSize);
         timeNextMove = Time.time + movePeriod;
 
