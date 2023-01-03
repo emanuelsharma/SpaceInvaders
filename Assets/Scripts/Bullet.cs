@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     float speed = 10f;
     [SerializeField]
     float maxPosition = 20f;
+    [SerializeField]
+    int damage = 1;
 
     void Update()
     {
@@ -21,6 +23,11 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision);
+        Damageable damageable = collision.gameObject.GetComponent<Damageable>();
+        if (damageable)
+        {
+            damageable.TakeDamage(damage);
+        }
 
         GameObject.Destroy(gameObject);
     }
